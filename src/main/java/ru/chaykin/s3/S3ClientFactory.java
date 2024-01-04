@@ -17,7 +17,7 @@ import static software.amazon.awssdk.regions.Region.US_EAST_1;
 public class S3ClientFactory {
     private static final IS3StorageInstance STORAGE_INSTANCE = new PlayStorageInstance();
 
-    private static final int MAX_CONCURRENCY = 96;
+    private static final int MAX_CONCURRENCY = 32;
     private static final long PART_SIZE = 8 * 1024L * 1024L;
     private static final Duration CONNECTION_TIMEOUT = Duration.ofSeconds(3);
 

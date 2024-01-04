@@ -37,7 +37,7 @@ class S3UploadTest {
 
 	    ForkJoinPool.commonPool().execute(() -> {
 		try {
-		    Thread.sleep(5000L);
+		    Thread.sleep(45000L);
 		} catch (InterruptedException e) {
 		    throw new RuntimeException(e);
 		}

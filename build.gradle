@@ -31,8 +31,3 @@ application {
 tasks.named("test") {
     useJUnitPlatform()
 }
-
-test {
-    //maxHeapSize = "4608m"
-    //maxHeapSize = "1536m"
-}
