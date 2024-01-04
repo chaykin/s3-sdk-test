@@ -11,9 +11,7 @@ import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.http.crt.AwsCrtAsyncHttpClient;
 import software.amazon.awssdk.services.s3.S3AsyncClient;
-import software.amazon.awssdk.services.s3.S3Configuration;
 
-import static software.amazon.awssdk.regions.Region.EU_SOUTH_2;
 import static software.amazon.awssdk.regions.Region.US_EAST_1;
 
 public class S3ClientFactory {
@@ -29,8 +27,7 @@ public class S3ClientFactory {
     public static S3AsyncClient createClient() {
 	return S3AsyncClient.builder()
 			.httpClientBuilder(createCrtHttpClient())
-			.serviceConfiguration(S3Configuration.builder().pathStyleAccessEnabled(true).checksumValidationEnabled(false).build())
-			//.forcePathStyle(true)
+			.forcePathStyle(true)
 			.endpointOverride(URI.create(STORAGE_INSTANCE.getUrl()))
 			.credentialsProvider(createCredentialsProvider())
 			.region(US_EAST_1)
