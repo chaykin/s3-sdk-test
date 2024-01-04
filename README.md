@@ -1,0 +1,1 @@
+This is a test project to show main app thread stuck on cancel `CompletableFeature`, returned by `putObject` method of AWS S3 SDK
