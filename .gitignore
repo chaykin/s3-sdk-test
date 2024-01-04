@@ -1,0 +1,13 @@
+# IDE
+*.iml
+**/.idea
+**/.classpath
+**/.project
+**/.settings
+
+# Gradle
+**/.gradle
+build
+
+# Etc
+logs

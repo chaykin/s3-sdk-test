@@ -1,0 +1,51 @@
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c:%L - %m%n"/>
+        </Console>
+        <RollingFile name="FileAppender"
+                     fileName="logs/upload.log"
+                     filePattern="logs/upload.%i.log">
+            <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c:%L - %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="250MB"/>
+            </Policies>
+            <!-- Max 10 files will be created everyday -->
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="WARN">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+
+        <Logger name="software.amazon.awssdk" additivity="false" level="WARN">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <Logger name="ru.chaykin" additivity="false" level="DEBUG">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <Logger name="software.amazon.awssdk.request" additivity="false" level="DEBUG">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <Logger name="software.amazon.awssdk.utils.http" additivity="false" level="TRACE">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <Logger name="software.amazon.awssdk.services.s3" additivity="false" level="TRACE">
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+        <Logger name="software.amazon.awssdk.utils.async" additivity="false" level="TRACE">
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+    </Loggers>
+</Configuration>
